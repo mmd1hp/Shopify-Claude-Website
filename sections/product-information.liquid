@@ -401,6 +401,156 @@
     background: #0B0B0B !important;
     color: #EDEDDE !important;
   }
+
+  /* SEEINVOID — product page extended styles */
+
+  /* Media / image area */
+  .product__media-wrapper,
+  .product__media-list {
+    background: #111111 !important;
+    border-radius: 0 !important;
+  }
+
+  .product__media img {
+    width: 100%;
+    display: block;
+    filter: contrast(1.05) brightness(0.95);
+  }
+
+  /* Thumbnail strip */
+  .thumbnail-list {
+    display: flex;
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .thumbnail-list__item {
+    border-radius: 0 !important;
+    border: 1px solid transparent !important;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .thumbnail-list__item.active,
+  .thumbnail-list__item:hover,
+  .thumbnail-list__item[aria-selected='true'] {
+    border-color: #EDEDDE !important;
+  }
+
+  /* Info panel */
+  .product__info-container {
+    background: #0B0B0B !important;
+    padding: 32px;
+  }
+
+  /* Price */
+  .price__regular,
+  .price-item--regular,
+  .product__price {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: #888888 !important;
+    margin-bottom: 24px;
+  }
+
+  /* Description */
+  .product__description,
+  .product-description,
+  .rte {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 16px !important;
+    color: #888888 !important;
+    line-height: 1.7 !important;
+    margin-bottom: 32px;
+    border-top: 1px solid #2D2D2D;
+    padding-top: 24px;
+  }
+
+  /* Variant selector buttons */
+  .variant-input-wrapper label,
+  .block-swatch label,
+  [class*='variant'] label {
+    display: inline-block;
+    border: 1px solid #2D2D2D !important;
+    border-radius: 0 !important;
+    padding: 10px 20px;
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: #888888 !important;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    background: transparent !important;
+  }
+
+  .variant-input-wrapper input:checked + label,
+  .variant-input-wrapper label:hover,
+  [class*='variant'] input:checked + label,
+  [class*='variant'] label:hover {
+    border-color: #EDEDDE !important;
+    color: #EDEDDE !important;
+  }
+
+  .variant-input-wrapper input:disabled + label,
+  [class*='variant'] input:disabled + label {
+    opacity: 0.3;
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+  /* Add to cart — full-width, solid white, invert on hover */
+  .product-form__submit,
+  [name='add'] {
+    font-family: Impact, sans-serif !important;
+    font-size: 18px !important;
+    letter-spacing: 0.1em !important;
+    padding: 18px !important;
+    margin-top: 16px;
+  }
+
+  /* Accordion (description / size guide / shipping) */
+  .accordion,
+  [class*='accordion'],
+  details.product-details {
+    border-top: 1px solid #2D2D2D;
+    margin-top: 32px;
+  }
+
+  .accordion__title,
+  details > summary,
+  .details-accordion__summary {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #888888 !important;
+    padding: 16px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #2D2D2D;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    transition: color 0.2s;
+  }
+
+  .accordion__title:hover,
+  details > summary:hover,
+  .details-accordion__summary:hover {
+    color: #EDEDDE !important;
+  }
+
+  .accordion__content,
+  details > .accordion__content,
+  details > p,
+  .details-accordion__content {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 15px !important;
+    color: #888888 !important;
+    padding: 16px 0;
+    line-height: 1.7 !important;
+  }
 {% endstylesheet %}
 
 {% schema %}
