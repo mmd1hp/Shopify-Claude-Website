@@ -39,10 +39,11 @@ body::after {
   background-size: 150px 150px;
 }
 
-/* Buttons — transparent + white border, invert on hover */
+/* Buttons — transparent + white border, invert on hover
+   Exclude: unstyled icon/utility buttons (cart, account, close, nav toggles) */
 .btn,
-button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']),
-.button {
+button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):not([class*='unstyled']):not([class*='header-actions']):not([class*='search']):not([class*='localization']),
+.button:not(.button-unstyled):not([class*='header-actions']):not([class*='close']):not([class*='cart-drawer']):not([class*='account']) {
   background: transparent !important;
   border: 1px solid var(--void-white) !important;
   color: var(--void-white) !important;
@@ -55,10 +56,22 @@ button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([cl
 }
 
 .btn:hover,
-button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):hover,
-.button:hover {
+button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):not([class*='unstyled']):not([class*='header-actions']):not([class*='search']):not([class*='localization']):hover,
+.button:not(.button-unstyled):not([class*='header-actions']):not([class*='close']):not([class*='cart-drawer']):not([class*='account']):hover {
   background: var(--void-white) !important;
   color: var(--void-black) !important;
+}
+
+/* Strip all styles from unstyled/icon utility buttons */
+.button-unstyled,
+.header-actions__action,
+[class*='header-actions'] button {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
 }
 
 /* Cards — dark surface, no radius */
@@ -77,11 +90,10 @@ button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([cl
   border-radius: 0 !important;
 }
 
-/* Section backgrounds */
-.section-background,
-.section,
-[class*='color-scheme'],
-[class*='color-'] {
+/* Section backgrounds — exclude header so it stays transparent */
+.section-background:not(.header-section .section-background):not(#header-group .section-background),
+.section:not(.header-section):not(#header-group *),
+[class*='color-scheme']:not(.header-section [class*='color-scheme']):not(#header-group [class*='color-scheme']) {
   background-color: var(--void-black) !important;
 }
 

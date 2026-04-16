@@ -986,8 +986,16 @@
   header-component,
   .header-section,
   .header {
-    background-color: #0B0B0B !important;
-    border-bottom: 1px solid #2D2D2D !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(237, 237, 222, 0.08) !important;
+  }
+
+  /* Solid header on scroll (when sticky kicks in) */
+  .header-section--stuck header-component,
+  .header-section--stuck .header {
+    background-color: rgba(11, 11, 11, 0.95) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .header__nav-item a,
