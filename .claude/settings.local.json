@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(shopify version *)",
+      "mcp__claude_ai_Shopify-MCP__shopify_get_shop",
+      "Bash(git checkout *)",
+      "Bash(shopify theme *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
