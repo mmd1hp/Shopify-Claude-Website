@@ -981,6 +981,40 @@
   .header__column .localization-form__select {
     background-color: var(--header-bg-color);
   }
+
+  /* SEEINVOID — header brand overrides */
+  header-component,
+  .header-section,
+  .header {
+    background-color: #0B0B0B !important;
+    border-bottom: 1px solid #2D2D2D !important;
+  }
+
+  .header__nav-item a,
+  .header__menu-item,
+  .header__nav a {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    color: #888888 !important;
+    transition: color 0.2s;
+  }
+
+  .header__nav-item a:hover,
+  .header__menu-item:hover,
+  .header__nav a:hover {
+    color: #EDEDDE !important;
+  }
+
+  .header__logo,
+  .header__logo img,
+  .header__heading-link {
+    color: #EDEDDE !important;
+    filter: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
 {% endstylesheet %}
 
 {% unless request.design_mode %}

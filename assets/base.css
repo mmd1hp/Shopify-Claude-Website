@@ -1,3 +1,94 @@
+/* ============================================================
+   SEEINVOID BRAND IDENTITY — v2.0
+   ============================================================ */
+
+:root {
+  --void-black: #0B0B0B;
+  --void-white: #EDEDDE;
+  --void-grey: #2D2D2D;
+  --void-navy: #1A1A2E;
+  --void-green: #203525;
+  --void-mid: #888888;
+}
+
+/* Force dark background & brand typography globally */
+body {
+  background-color: var(--void-black) !important;
+  color: var(--void-white) !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Impact, 'Arial Black', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--void-white) !important;
+}
+
+/* Film grain overlay — fixed, non-interactive */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+}
+
+/* Buttons — transparent + white border, invert on hover */
+.btn,
+button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']),
+.button {
+  background: transparent !important;
+  border: 1px solid var(--void-white) !important;
+  color: var(--void-white) !important;
+  border-radius: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  padding: 14px 28px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover,
+button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):hover,
+.button:hover {
+  background: var(--void-white) !important;
+  color: var(--void-black) !important;
+}
+
+/* Cards — dark surface, no radius */
+.card,
+.product-card,
+.card__inner,
+.card-wrapper {
+  background: var(--void-grey) !important;
+  border-radius: 0 !important;
+}
+
+/* Remove all rounded corners globally */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+/* Section backgrounds */
+.section-background,
+.section,
+[class*='color-scheme'],
+[class*='color-'] {
+  background-color: var(--void-black) !important;
+}
+
+/* ============================================================
+   END SEEINVOID BRAND IDENTITY
+   ============================================================ */
+
 * {
   box-sizing: border-box;
 }

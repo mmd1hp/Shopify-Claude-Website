@@ -358,6 +358,49 @@
       white-space: nowrap;
     }
   }
+
+  /* SEEINVOID — product page brand overrides */
+  .product-information,
+  .product__info-container,
+  .product {
+    background-color: #0B0B0B !important;
+  }
+
+  .product__title,
+  .product-information h1,
+  .product-information h2 {
+    font-family: Impact, 'Arial Black', sans-serif !important;
+    font-size: 48px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #EDEDDE !important;
+  }
+
+  .product__description,
+  .product-information p,
+  .product-information .rte {
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: #888888 !important;
+  }
+
+  .product-form__submit,
+  .product__add-to-cart,
+  [name='add'] {
+    width: 100% !important;
+    background: #EDEDDE !important;
+    color: #0B0B0B !important;
+    border: 1px solid #EDEDDE !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+  }
+
+  .product-form__submit:hover,
+  [name='add']:hover {
+    background: #0B0B0B !important;
+    color: #EDEDDE !important;
+  }
 {% endstylesheet %}
 
 {% schema %}
