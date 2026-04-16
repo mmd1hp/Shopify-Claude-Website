@@ -62,16 +62,25 @@ button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([cl
   color: var(--void-black) !important;
 }
 
-/* Strip all styles from unstyled/icon utility buttons */
-.button-unstyled,
+/* Strip border/bg from unstyled utility buttons, preserve padding for hit area */
+.button-unstyled {
+  background: transparent !important;
+  border: none !important;
+  color: inherit !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  cursor: pointer !important;
+}
+
+/* Header action buttons (cart, account, search) — governed by header.liquid CSS */
 .header-actions__action,
 [class*='header-actions'] button {
   background: transparent !important;
   border: none !important;
-  padding: 0 !important;
-  color: inherit !important;
+  color: #EDEDDE !important;
   letter-spacing: normal !important;
   text-transform: none !important;
+  cursor: pointer !important;
 }
 
 /* Cards — dark surface, no radius */

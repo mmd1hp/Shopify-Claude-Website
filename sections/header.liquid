@@ -982,46 +982,142 @@
     background-color: var(--header-bg-color);
   }
 
-  /* SEEINVOID — header brand overrides */
-  header-component,
-  .header-section,
-  .header {
+  /* ================================================================
+     SEEINVOID — Header Redesign
+     ================================================================ */
+
+  /* ── Fixed 72px height ── */
+  #header-component .header__row--top {
+    min-height: 72px;
+  }
+
+  /* ── Smooth bg transition on all rows ── */
+  #header-component .header__row {
+    transition: background-color 0.35s ease, border-color 0.35s ease !important;
+  }
+
+  /* ── Transparent at top: keep transparent even after sticky fires,
+         until the JS 80px threshold sets [data-void-scrolled] ── */
+  #header-component[transparent='not-sticky']:not([data-void-scrolled]) .header__row,
+  #header-component[transparent='always']:not([data-void-scrolled]) .header__row {
     background-color: transparent !important;
-    border-bottom: 1px solid rgba(237, 237, 222, 0.08) !important;
+    border-bottom-color: transparent !important;
   }
 
-  /* Solid header on scroll (when sticky kicks in) */
-  .header-section--stuck header-component,
-  .header-section--stuck .header {
-    background-color: rgba(11, 11, 11, 0.95) !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+  /* ── Solid header at 80px scroll (added via seeinvoid-header.js) ── */
+  #header-component[data-void-scrolled] .header__row {
+    background-color: rgba(11, 11, 11, 0.97) !important;
+    border-bottom: 1px solid #2D2D2D !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
-  .header__nav-item a,
-  .header__menu-item,
-  .header__nav a {
+  /* ── Logo: hidden at top, fades in when scrolled ── */
+  #header-component[transparent] .header__heading-link,
+  #header-component[transparent] .header__logo {
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.35s ease, transform 0.35s ease !important;
+    pointer-events: none;
+  }
+
+  #header-component[data-void-scrolled] .header__heading-link,
+  #header-component[data-void-scrolled] .header__logo {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto;
+  }
+
+  /* ── Nav links: white, uppercase, Space Grotesk ── */
+  .menu-list__link,
+  .header__menu-item a,
+  .header__nav-item a {
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 13px !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.15em !important;
+    color: #EDEDDE !important;
+    text-decoration: none;
+    transition: color 0.2s !important;
+  }
+
+  .menu-list__link:hover,
+  .header__menu-item a:hover,
+  .header__nav-item a:hover {
     color: #888888 !important;
-    transition: color 0.2s;
   }
 
-  .header__nav-item a:hover,
-  .header__menu-item:hover,
-  .header__nav a:hover {
+  /* ── Header icons: clean, no borders, proper hit area ── */
+  .header-actions__action {
+    background: transparent !important;
+    border: none !important;
+    padding: 10px !important;
+    cursor: pointer !important;
     color: #EDEDDE !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: opacity 0.2s;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    min-width: 40px;
+    min-height: 40px;
   }
 
-  .header__logo,
-  .header__logo img,
-  .header__heading-link {
+  .header-actions__action:hover {
+    opacity: 0.6;
+    background: transparent !important;
+  }
+
+  /* SVG icons: stroke only, white, no fill */
+  .header-actions__action svg,
+  cart-icon svg,
+  .header-actions__cart-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor !important;
+    fill: none !important;
+    stroke-width: 1.5;
+    color: #EDEDDE;
+  }
+
+  /* ── Cart count bubble ── */
+  .cart-bubble__background {
+    background: #EDEDDE !important;
+  }
+
+  .cart-bubble__text-count {
+    color: #0B0B0B !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  /* ── Mobile: hamburger + drawer menu ── */
+  @media screen and (max-width: 749px) {
+    .header-drawer__button,
+    [class*='header__button'],
+    .header__drawer-toggle {
+      background: transparent !important;
+      border: none !important;
+      color: #EDEDDE !important;
+      cursor: pointer;
+    }
+  }
+
+  .header-drawer,
+  [class*='header-drawer']:not(.cart-drawer__close-button),
+  .menu-drawer {
+    background: #0B0B0B !important;
+  }
+
+  .header-drawer .menu-list__link,
+  .menu-drawer .menu-list__link {
+    font-size: 18px !important;
+    padding-block: 16px !important;
+    border-bottom: 1px solid #2D2D2D !important;
     color: #EDEDDE !important;
-    filter: none !important;
-    text-shadow: none !important;
-    box-shadow: none !important;
   }
 {% endstylesheet %}
 
