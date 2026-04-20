@@ -1,10 +1,6 @@
 
 
-{% assign product = product | default: closest.product %}
-
-{%- if product == blank -%}
-  <!-- DEBUG: Product is blank/null in gallery block -->
-{%- endif -%}
+{% assign product = closest.product %}
 
 {% capture children %}
   {% unless product == blank %}
@@ -36,7 +32,7 @@
   {% endunless %}
 {% endcapture %}
 
-{% render 'card-gallery', children: children, product: product %}
+{% render 'card-gallery', children: children, product: closest.product %}
 
 {% # Title and price for the zoomed out grid view %}
 <div class="product-grid-view-zoom-out--details">
