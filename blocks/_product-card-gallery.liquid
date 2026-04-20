@@ -2,6 +2,10 @@
 
 {% assign product = product | default: closest.product %}
 
+{%- if product == blank -%}
+  <!-- DEBUG: Product is blank/null in gallery block -->
+{%- endif -%}
+
 {% capture children %}
   {% unless product == blank %}
     <div

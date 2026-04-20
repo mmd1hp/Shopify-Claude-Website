@@ -102,13 +102,14 @@
     color: #EDEDDE !important;
   }
 
-  /* Filter / sort bar */
+  /* Filter / sort bar — cosmetic only, excludes the mobile drawer */
   .filter-and-sort,
-  .facets,
+  .facets:not(.facets--drawer),
   .facets__wrapper,
   .sort-by,
-  [class*='filter'] label,
-  [class*='facet'] label,
+  .facets__label,
+  .facets__summary,
+  .sorting-filter .facets__label,
   [class*='sort'] select,
   [class*='sort'] button {
     font-family: 'Space Grotesk', sans-serif !important;
@@ -120,8 +121,20 @@
     border-color: #2D2D2D !important;
   }
 
-  [class*='filter'] input:checked + label,
-  [class*='facet'] input:checked + label {
+  .facets__label,
+  .facets__summary span {
+    color: #888888 !important;
+  }
+
+  /* BUG 1 FIX — filter drawer must have a solid background on mobile */
+  dialog.facets--drawer {
+    background-color: #0B0B0B !important;
+    color: #EDEDDE !important;
+  }
+
+  /* Active filter states */
+  .facets__pill-input:checked + .facets__pill-label,
+  .facets input:checked + label {
     color: #EDEDDE !important;
     border: 1px solid #EDEDDE !important;
   }
@@ -131,51 +144,44 @@
     gap: 2px !important;
   }
 
-  /* Product card */
-  .card-wrapper {
-    background: #2D2D2D !important;
+  /* Product card container */
+  .product-card__content {
+    background-color: #0B0B0B;
     border-radius: 0 !important;
-    border: none !important;
     overflow: hidden;
     position: relative;
   }
 
-  .card-wrapper:hover .card__media img {
-    transform: scale(1.03);
+  /* Image gallery */
+  .card-gallery {
+    background-color: #111111;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-gallery .product-media__image {
     transition: transform 0.4s ease;
   }
 
-  .card-wrapper:hover::after {
+  .card-gallery:hover .product-media__image {
+    transform: scale(1.03);
+  }
+
+  /* Grain overlay on hover */
+  .card-gallery::after {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 150px;
     z-index: 1;
   }
 
-  .card__heading,
-  .card__heading a {
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.1em !important;
-    color: #EDEDDE !important;
-    margin-top: 12px;
-    padding: 0 12px;
-  }
-
-  .card .price,
-  .card .price__regular,
-  .card .price__sale,
-  .card [class*='price'] {
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-size: 13px !important;
-    color: #888888 !important;
-    padding: 4px 12px 16px;
+  .card-gallery:hover::after {
+    opacity: 0.06;
   }
 
   .badge {
