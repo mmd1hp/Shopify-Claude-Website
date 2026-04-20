@@ -1,33 +1,37 @@
 /* ============================================================
-   SEEINVOID BRAND IDENTITY — v2.0
+   SEEINVOID BRAND IDENTITY — v3.0  (cosmetic only, no structural overrides)
    ============================================================ */
 
 :root {
   --void-black: #0B0B0B;
   --void-white: #EDEDDE;
   --void-grey: #2D2D2D;
-  --void-navy: #1A1A2E;
-  --void-green: #203525;
   --void-mid: #888888;
+
+  /* Override Shopify color scheme variables at root so all components inherit */
+  --color-background: 11 11 11;
+  --color-foreground: 237 237 222;
+  --color-border: 45 45 45;
 }
 
-/* Force dark background & brand typography globally */
+/* ── Base ── */
 body {
-  background-color: var(--void-black) !important;
-  color: var(--void-white) !important;
-  font-family: 'Space Grotesk', sans-serif !important;
-  font-size: 18px;
-  line-height: 1.6;
+  background-color: #0B0B0B;
+  color: #EDEDDE;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Impact, 'Arial Black', sans-serif !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--void-white) !important;
+  font-family: Impact, 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Film grain overlay — fixed, non-interactive */
+a {
+  color: #EDEDDE;
+}
+
+/* ── Film grain — purely visual, never blocks interaction ── */
 body::after {
   content: '';
   position: fixed;
@@ -39,71 +43,100 @@ body::after {
   background-size: 150px 150px;
 }
 
-/* Buttons — transparent + white border, invert on hover
-   Exclude: unstyled icon/utility buttons (cart, account, close, nav toggles) */
-.btn,
-button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):not([class*='unstyled']):not([class*='header-actions']):not([class*='search']):not([class*='localization']),
-.button:not(.button-unstyled):not([class*='header-actions']):not([class*='close']):not([class*='cart-drawer']):not([class*='account']) {
-  background: transparent !important;
-  border: 1px solid var(--void-white) !important;
-  color: var(--void-white) !important;
-  border-radius: 0 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.1em !important;
-  font-family: 'Space Grotesk', sans-serif !important;
-  padding: 14px 28px;
-  transition: background 0.2s, color 0.2s;
+/* ── Shopify color scheme surfaces ── */
+.color-scheme-1,
+.color-background-1,
+[class*='color-scheme'] {
+  --color-background: 11 11 11;
+  --color-foreground: 237 237 222;
+  --color-border: 45 45 45;
+  background-color: #0B0B0B;
+  color: #EDEDDE;
 }
 
-.btn:hover,
-button:not([class*='slider']):not([class*='icon']):not([class*='close']):not([class*='toggle']):not([class*='arrow']):not([class*='unstyled']):not([class*='header-actions']):not([class*='search']):not([class*='localization']):hover,
-.button:not(.button-unstyled):not([class*='header-actions']):not([class*='close']):not([class*='cart-drawer']):not([class*='account']):hover {
-  background: var(--void-white) !important;
-  color: var(--void-black) !important;
+/* ── Page / section backgrounds ── */
+.section-background {
+  background-color: #0B0B0B;
 }
 
-/* Strip border/bg from unstyled utility buttons, preserve padding for hit area */
-.button-unstyled {
-  background: transparent !important;
-  border: none !important;
-  color: inherit !important;
-  letter-spacing: normal !important;
-  text-transform: none !important;
-  cursor: pointer !important;
+/* ── Primary buttons (add to cart, checkout) ── */
+.button--primary,
+.shopify-payment-button__button,
+[data-testid='Checkout-button'] {
+  background-color: #EDEDDE;
+  color: #0B0B0B;
+  border-color: #EDEDDE;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-/* Header action buttons (cart, account, search) — governed by header.liquid CSS */
-.header-actions__action,
-[class*='header-actions'] button {
-  background: transparent !important;
-  border: none !important;
-  color: #EDEDDE !important;
-  letter-spacing: normal !important;
-  text-transform: none !important;
-  cursor: pointer !important;
+.button--primary:hover,
+.shopify-payment-button__button:hover {
+  background-color: #0B0B0B;
+  color: #EDEDDE;
+  border-color: #EDEDDE;
 }
 
-/* Cards — dark surface, no radius */
-.card,
-.product-card,
-.card__inner,
-.card-wrapper {
-  background: var(--void-grey) !important;
-  border-radius: 0 !important;
+/* ── Secondary / outline buttons ── */
+.button--secondary {
+  background-color: transparent;
+  color: #EDEDDE;
+  border-color: #EDEDDE;
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-/* Remove all rounded corners globally */
-*,
-*::before,
-*::after {
-  border-radius: 0 !important;
+.button--secondary:hover {
+  background-color: #EDEDDE;
+  color: #0B0B0B;
 }
 
-/* Section backgrounds — exclude header so it stays transparent */
-.section-background:not(.header-section .section-background):not(#header-group .section-background),
-.section:not(.header-section):not(#header-group *),
-[class*='color-scheme']:not(.header-section [class*='color-scheme']):not(#header-group [class*='color-scheme']) {
-  background-color: var(--void-black) !important;
+/* ── Header action buttons (cart, account) ── */
+.header-actions__action {
+  color: #EDEDDE;
+}
+
+/* ── Product cards ── */
+.product-card__info,
+.card__content,
+.card-information {
+  background-color: #0B0B0B;
+  color: #EDEDDE;
+}
+
+.product-card__title,
+.card__heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #EDEDDE;
+}
+
+.price,
+.price__regular,
+.price-item {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #888888;
+}
+
+/* ── Inputs, selects ── */
+input,
+select,
+textarea {
+  background-color: #111111;
+  color: #EDEDDE;
+  border-color: #2D2D2D;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #EDEDDE;
+  outline: none;
 }
 
 /* ============================================================
@@ -1812,10 +1845,11 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
 }
 
 .product-media-container.media-fit {
-  --product-media-fit: cover;
+  --product-media-fit: contain;
 
   img {
     object-fit: var(--product-media-fit);
+    object-position: center;
   }
 }
 
@@ -2014,6 +2048,8 @@ zoom-dialog dialog {
 .product-media {
   display: flex;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 /* If the product media is already providing an image cover, hide images provided by sibling deferred-media */
@@ -2744,6 +2780,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 /* Hide "Choose" button when "Add" button is shown */
 [data-quick-add-button='add'] .quick-add__button--choose {
   display: none;
+}
+
+/* Hide "Choose options" button entirely from collection cards */
+.product-card .quick-add__button--choose {
+  display: none !important;
 }
 
 /* Drawer */
