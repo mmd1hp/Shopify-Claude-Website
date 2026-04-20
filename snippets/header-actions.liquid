@@ -417,7 +417,7 @@
 
   .cart-drawer__items .cart-items__table-row {
     display: grid;
-    grid-template-columns: clamp(60px, 15cqi, 100px) 1fr auto;
+    grid-template-columns: clamp(2.5rem, 15cqi, 7.5rem) minmax(0, 1fr) auto;
     grid-template-areas:
       'media details price'
       'media variants .'
@@ -425,7 +425,7 @@
       'media quantity .'
       'media error error';
     align-items: start;
-    gap: 12px;
+    gap: 1.5rem;
     padding-block: 24px;
     border-bottom: 1px solid #2d2d2d;
     margin-block: 0;
@@ -487,13 +487,15 @@
   .cart-drawer__items .cart-items__quantity {
     grid-area: quantity;
     display: flex;
+    align-items: center;
     align-self: start;
+    margin-top: 8px;
   }
 
   .cart-drawer__items .cart-items__quantity-controls {
     display: flex;
     align-items: center;
-    gap: var(--gap-xs);
+    gap: 1rem;
   }
 
   .cart-drawer__items .cart-items__price {
