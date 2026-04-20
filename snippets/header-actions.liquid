@@ -425,9 +425,10 @@
       'media quantity .'
       'media error error';
     align-items: start;
-    gap: 1.5rem;
-    padding-block: 24px;
-    border-bottom: 1px solid #2d2d2d;
+    row-gap: 0.5rem;
+    column-gap: 1.5rem;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin-block: 0;
     font-family: 'Geist', sans-serif;
     font-size: 14px;
@@ -502,8 +503,17 @@
     grid-area: price;
     align-self: start;
     text-align: right;
+    font-weight: 600;
     font-size: 12.5px;
     line-height: 1.4;
+  }
+
+  .cart-drawer__items .cart-primary-typography {
+    font-weight: 500;
+  }
+
+  .cart-drawer__items .cart-secondary-typography {
+    font-weight: 600;
   }
 
   .cart-drawer__items .cart-items__title {
