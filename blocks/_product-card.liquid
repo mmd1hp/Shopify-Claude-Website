@@ -1,11 +1,11 @@
 
 
 {% liquid
-  assign product = closest.product
+  assign product = product | default: closest.product
 -%}
 
 {% capture children %}
-  {% content_for 'blocks', closest.product: product %}
+  {% content_for 'blocks', product: product, closest.product: product %}
 {% endcapture %}
 
 {% render 'product-card', children: children, product: product %}
