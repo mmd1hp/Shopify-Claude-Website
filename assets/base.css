@@ -3411,13 +3411,13 @@ label:has(input[type='checkbox']:disabled) {
 .cart-primary-typography {
   font-family: var(--cart-primary-font-family);
   font-style: var(--cart-primary-font-style);
-  font-weight: var(--cart-primary-font-weight);
+  font-weight: 500;
 }
 
 .cart-secondary-typography {
   font-family: var(--cart-secondary-font-family);
   font-style: var(--cart-secondary-font-style);
-  font-weight: var(--cart-secondary-font-weight);
+  font-weight: 700;
 }
 
 /* ── Cart Drawer & Items Layout ── */
@@ -3463,16 +3463,15 @@ label:has(input[type='checkbox']:disabled) {
 }
 
 .cart-items__table-row {
-  display: grid;
+  display: grid !important;
   grid-template-columns: 80px minmax(0, 1fr) auto;
   grid-template-areas:
     "media details price"
-    "media quantity quantity"
-    "media error error";
+    "media quantity price";
   width: 100%;
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--padding-sm) 0;
-  gap: var(--padding-sm);
+  border-bottom: 1px solid #2D2D2D !important;
+  padding: 12px 0;
+  gap: 0.5rem;
   align-items: start;
   height: auto;
 }
@@ -3493,12 +3492,13 @@ label:has(input[type='checkbox']:disabled) {
   grid-area: media;
   width: 80px;
   height: 80px;
+  overflow: visible;
 }
 
 .cart-items__media img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ── Cart Details Cell ── */
@@ -3506,24 +3506,42 @@ label:has(input[type='checkbox']:disabled) {
   grid-area: details;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--padding-sm) / 2);
+  gap: 4px;
   min-width: 0;
+  align-self: start;
+}
+
+.cart-items__details * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* ── Cart Quantity Cell ── */
 .cart-items__quantity {
   grid-area: quantity;
   display: flex;
+  align-items: center;
+  gap: 0.75rem;
   width: fit-content;
   white-space: nowrap;
+  align-self: center;
 }
 
 /* ── Cart Price Cell ── */
 .cart-items__price {
   grid-area: price;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
   text-align: right;
   white-space: nowrap;
+  font-weight: bold;
+  align-self: stretch;
+}
+
+.cart-items__price * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* ── Cart Error Cell ── */
@@ -3538,12 +3556,13 @@ label:has(input[type='checkbox']:disabled) {
     grid-template-areas:
       "media details"
       "media quantity"
-      "media price"
       "media error";
   }
 
   .cart-items__price {
+    grid-area: details;
     text-align: left;
+    justify-content: flex-start;
   }
 }
 
