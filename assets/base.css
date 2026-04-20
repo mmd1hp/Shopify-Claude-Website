@@ -3566,17 +3566,6 @@ label:has(input[type='checkbox']:disabled) {
   margin-bottom: var(--padding-sm);
 }
 
-/* ── Drawer Container ── */
-.cart-drawer__items,
-scroll-hint.cart-drawer__items {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: calc(100vh - 300px);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 /* Quantity selector */
 .quantity-selector {
   --quantity-selector-width: 124px;

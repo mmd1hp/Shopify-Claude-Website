@@ -386,7 +386,8 @@
     padding: 0;
     background-color: var(--color-background);
     flex-grow: 1;
-    overflow-y: auto;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .cart-drawer__heading {
@@ -485,8 +486,11 @@
   .cart-drawer__items {
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
     padding-inline: var(--cart-drawer-padding);
     overflow-y: auto;
+    overscroll-behavior: contain;
 
     @media screen and (min-width: 750px) {
       padding-inline: var(--cart-drawer-padding-desktop);
